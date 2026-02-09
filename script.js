@@ -12,7 +12,7 @@ html.setAttribute('data-theme', currentTheme);
 themeToggle.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
+
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 });
@@ -52,7 +52,7 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
-    
+
     // Update active navigation link
     let current = '';
     sections.forEach(section => {
@@ -62,7 +62,7 @@ window.addEventListener('scroll', () => {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -90,7 +90,7 @@ let typingSpeed = 100;
 
 function typeEffect() {
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (isDeleting) {
         typingText.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -100,7 +100,7 @@ function typeEffect() {
         charIndex++;
         typingSpeed = 100;
     }
-    
+
     if (!isDeleting && charIndex === currentPhrase.length) {
         // Pause at end of phrase
         typingSpeed = 2000;
@@ -110,7 +110,7 @@ function typeEffect() {
         phraseIndex = (phraseIndex + 1) % phrases.length;
         typingSpeed = 500;
     }
-    
+
     setTimeout(typeEffect, typingSpeed);
 }
 
@@ -126,7 +126,7 @@ window.addEventListener('load', () => {
 const nameParts = document.querySelectorAll('.name-part');
 nameParts.forEach((part, index) => {
     part.setAttribute('data-text', part.textContent);
-    
+
     // Add stagger effect on page load
     part.style.animationDelay = `${0.2 + index * 0.1}s`;
 });
@@ -141,15 +141,15 @@ const particleCount = 50;
 function createParticle() {
     const particle = document.createElement('div');
     particle.classList.add('particle');
-    
+
     // Random position
     particle.style.left = Math.random() * 100 + '%';
     particle.style.top = Math.random() * 100 + '%';
-    
+
     // Random animation delay
     particle.style.animationDelay = Math.random() * 15 + 's';
     particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-    
+
     particlesContainer.appendChild(particle);
 }
 
@@ -199,7 +199,7 @@ PROJECTS
 - E-commerce Platform
 - Task Management App
     `.trim();
-    
+
     // Create blob and download
     const blob = new Blob([cvContent], { type: 'text/plain' });
     const url = window.URL.createObjectURL(blob);
@@ -210,7 +210,7 @@ PROJECTS
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
-    
+
     // Show feedback
     const originalText = downloadCVBtn.innerHTML;
     downloadCVBtn.innerHTML = `
@@ -219,7 +219,7 @@ PROJECTS
         </svg>
         Downloaded!
     `;
-    
+
     setTimeout(() => {
         downloadCVBtn.innerHTML = originalText;
     }, 2000);
@@ -262,19 +262,19 @@ const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(contactForm);
     const name = formData.get('name');
     const email = formData.get('email');
     const message = formData.get('message');
-    
+
     // Here you would typically send the data to a server
     console.log('Form submitted:', { name, email, message });
-    
+
     // Show success message
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
-    
+
     submitBtn.innerHTML = `
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="20 6 9 17 4 12"></polyline>
@@ -282,7 +282,7 @@ contactForm.addEventListener('submit', (e) => {
         Message Sent!
     `;
     submitBtn.disabled = true;
-    
+
     // Reset form
     setTimeout(() => {
         contactForm.reset();
@@ -318,12 +318,12 @@ const orbs = document.querySelectorAll('.gradient-orb');
 window.addEventListener('mousemove', (e) => {
     const mouseX = e.clientX / window.innerWidth;
     const mouseY = e.clientY / window.innerHeight;
-    
+
     orbs.forEach((orb, index) => {
         const speed = (index + 1) * 20;
         const x = (mouseX - 0.5) * speed;
         const y = (mouseY - 0.5) * speed;
-        
+
         orb.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
@@ -339,13 +339,13 @@ const scrollObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '0';
             entry.target.style.transform = 'translateY(30px)';
-            
+
             setTimeout(() => {
                 entry.target.style.transition = 'all 0.6s ease-out';
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             }, 100);
-            
+
             scrollObserver.unobserve(entry.target);
         }
     });
@@ -369,7 +369,7 @@ document.addEventListener('mousemove', (e) => {
     // Only on larger screens
     if (window.innerWidth > 968) {
         cursorTrail.push({ x: e.clientX, y: e.clientY });
-        
+
         if (cursorTrail.length > trailLength) {
             cursorTrail.shift();
         }
