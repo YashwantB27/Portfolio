@@ -899,14 +899,20 @@ ul {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: var(--spacing-2xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info {
+    text-align: center;
+    max-width: 800px;
 }
 
 .contact-subtitle {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
+    font-weight: 700;
 }
 
 .contact-description {
@@ -964,15 +970,17 @@ ul {
 
 .social-links {
     display: flex;
-    gap: var(--spacing-md);
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
 }
 
 .social-link {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-md);
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-lg);
     background: var(--color-bg-primary);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -980,11 +988,17 @@ ul {
     transition: all var(--transition-base);
 }
 
+.social-link svg {
+    width: 36px;
+    height: 36px;
+}
+
 .social-link:hover {
     background: var(--gradient-primary);
     color: white;
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
 }
 
 /* ===================================
