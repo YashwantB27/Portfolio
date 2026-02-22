@@ -750,6 +750,19 @@ ul {
     opacity: 0.3;
 }
 
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform var(--transition-slow);
+    display: block;
+}
+
+.about-image:hover .profile-photo {
+    transform: scale(1.04);
+}
+
 .about-description {
     font-size: 1.125rem;
     color: var(--color-text-secondary);
@@ -849,45 +862,33 @@ ul {
     color: var(--color-text-primary);
 }
 
-.skill-percentage {
-    font-size: 0.875rem;
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-primary);
-}
-
-.skill-bar {
-    height: 8px;
+    border-radius: var(--radius-full);
     background: var(--color-bg-tertiary);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-    position: relative;
+    color: var(--color-primary);
+    border: 1.5px solid var(--color-primary);
+    transition: all var(--transition-base);
+    cursor: default;
 }
 
-.skill-progress {
-    height: 100%;
+.skill-tag:hover {
     background: var(--gradient-primary);
-    border-radius: var(--radius-full);
-    transition: width 1s ease-out;
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-progress::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px hsla(250, 84%, 54%, 0.25);
 }
 
 /* ===================================
