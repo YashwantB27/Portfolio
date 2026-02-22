@@ -132,6 +132,45 @@ nameParts.forEach((part, index) => {
 });
 
 // ===================================
+// HERO NAME SCROLL ROTATION
+// ===================================
+
+const heroName = document.getElementById('heroName');
+const heroSection = document.getElementById('home');
+
+let ticking = false;
+
+function updateNameRotation() {
+    if (!heroName || !heroSection) return;
+
+    const heroHeight = heroSection.offsetHeight;
+    const scrollY = window.scrollY;
+
+    // Only rotate while the hero is still in view
+    const progress = Math.min(scrollY / heroHeight, 1);
+
+    // Rotate up to 360 degrees as user scrolls through the hero section
+    const rotation = progress * 360;
+    const scale = 1 - progress * 0.3;   // shrinks slightly while spinning
+    const opacity = 1 - progress * 0.6;   // fades out gracefully
+
+    heroName.style.transform = `perspective(600px) rotateY(${rotation}deg) scale(${scale})`;
+    heroName.style.opacity = opacity;
+
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(updateNameRotation);
+        ticking = true;
+    }
+});
+
+// Ensure name is visible on load
+updateNameRotation();
+
+// ===================================
 // PARTICLE ANIMATION
 // ===================================
 
@@ -226,33 +265,26 @@ PROJECTS
 });
 
 // ===================================
-// SKILL BARS ANIMATION
+// SKILL BARS ANIMATION (legacy - kept for compatibility)
 // ===================================
 
 const skillBars = document.querySelectorAll('.skill-progress');
 
-const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px'
-};
+if (skillBars.length > 0) {
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => { bar.style.width = width; }, 100);
+                skillObserver.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
 
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const bar = entry.target;
-            const width = bar.style.width;
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-            skillObserver.unobserve(bar);
-        }
-    });
-}, observerOptions);
-
-skillBars.forEach(bar => {
-    skillObserver.observe(bar);
-});
+    skillBars.forEach(bar => skillObserver.observe(bar));
+}
 
 // ===================================
 // CONTACT FORM HANDLING
@@ -260,36 +292,35 @@ skillBars.forEach(bar => {
 
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
 
-    // Here you would typically send the data to a server
-    console.log('Form submitted:', { name, email, message });
+        console.log('Form submitted:', { name, email, message });
 
-    // Show success message
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
 
-    submitBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-        Message Sent!
-    `;
-    submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Message Sent!
+        `;
+        submitBtn.disabled = true;
 
-    // Reset form
-    setTimeout(() => {
-        contactForm.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 3000);
-});
+        setTimeout(() => {
+            contactForm.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
+    });
+}
 
 // ===================================
 // SMOOTH SCROLL ENHANCEMENT

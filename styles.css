@@ -494,6 +494,9 @@ ul {
     justify-content: center;
     gap: 0;
     white-space: nowrap;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+    transform-origin: center center;
 }
 
 .name-part {
