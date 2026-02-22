@@ -14,9 +14,14 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Three.js for 3D interactive background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
 
 <body>
+    <!-- Full-screen 3D AI Background -->
+    <canvas id="bgCanvas"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -705,6 +710,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="3d-background.js"></script>
 </body>
 
 </html>

@@ -3,29 +3,36 @@
    =================================== */
 
 :root {
-    /* Color Palette - Light Mode */
-    --color-primary: hsl(250, 84%, 54%);
-    --color-primary-light: hsl(250, 84%, 64%);
-    --color-primary-dark: hsl(250, 84%, 44%);
-    --color-secondary: hsl(340, 82%, 52%);
-    --color-accent: hsl(180, 77%, 47%);
+    /* ── Option 2: Clean Light ───────────────────── */
+    --color-primary: #4F46E5;
+    /* Indigo */
+    --color-primary-light: #6366F1;
+    --color-primary-dark: #3730A3;
+    --color-secondary: #0EA5E9;
+    /* Sky Blue */
+    --color-accent: #06B6D4;
+    /* Cyan */
 
-    --color-bg-primary: hsl(0, 0%, 100%);
-    --color-bg-secondary: hsl(240, 33%, 99%);
-    --color-bg-tertiary: hsl(240, 20%, 97%);
+    --color-bg-primary: #F8FAFC;
+    /* Off White */
+    --color-bg-secondary: #FFFFFF;
+    --color-bg-tertiary: #F1F5F9;
 
-    --color-text-primary: hsl(240, 20%, 15%);
-    --color-text-secondary: hsl(240, 10%, 35%);
-    --color-text-tertiary: hsl(240, 5%, 55%);
+    --color-text-primary: #0F172A;
+    /* Charcoal */
+    --color-text-secondary: #64748B;
+    /* Cool Gray */
+    --color-text-tertiary: #94A3B8;
+    /* Muted Gray */
 
-    --color-border: hsl(240, 10%, 90%);
-    --color-shadow: hsla(240, 30%, 28%, 0.12);
+    --color-border: #E2E8F0;
+    /* Light Gray */
+    --color-shadow: hsla(226, 57%, 21%, 0.10);
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(250, 84%, 54%) 0%, hsl(280, 84%, 54%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(340, 82%, 52%) 0%, hsl(20, 82%, 52%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(180, 77%, 47%) 0%, hsl(220, 77%, 57%) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+    --gradient-secondary: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+    --gradient-accent: linear-gradient(135deg, #6366F1 0%, #3B82F6 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
 
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -67,23 +74,36 @@
     --z-tooltip: 500;
 }
 
-/* Dark Mode */
+/* ── Option 1: Midnight AI — Dark Mode ───────────────────────────────── */
 [data-theme="dark"] {
-    --color-primary: hsl(250, 84%, 64%);
-    --color-primary-light: hsl(250, 84%, 74%);
-    --color-primary-dark: hsl(250, 84%, 54%);
+    --color-primary: #3B82F6;
+    /* Electric Blue */
+    --color-primary-light: #60A5FA;
+    --color-primary-dark: #2563EB;
+    --color-secondary: #06B6D4;
+    /* Cyan / Teal */
+    --color-accent: #6366F1;
+    /* Blue-Purple */
 
-    --color-bg-primary: hsl(240, 20%, 8%);
-    --color-bg-secondary: hsl(240, 18%, 12%);
-    --color-bg-tertiary: hsl(240, 16%, 16%);
+    --color-bg-primary: #0A0F1E;
+    /* Deep Navy */
+    --color-bg-secondary: #111827;
+    /* Dark Slate */
+    --color-bg-tertiary: #1A2235;
 
-    --color-text-primary: hsl(0, 0%, 95%);
-    --color-text-secondary: hsl(240, 5%, 75%);
-    --color-text-tertiary: hsl(240, 5%, 55%);
+    --color-text-primary: #F1F5F9;
+    /* Soft White */
+    --color-text-secondary: #94A3B8;
+    /* Muted Gray */
+    --color-text-tertiary: #64748B;
+    /* Cool Gray */
 
-    --color-border: hsl(240, 10%, 20%);
-    --color-shadow: hsla(0, 0%, 0%, 0.3);
+    --color-border: #1E2A3A;
+    --color-shadow: hsla(0, 0%, 0%, 0.45);
 
+    --gradient-primary: linear-gradient(135deg, #6366F1 0%, #3B82F6 100%);
+    --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
+    --gradient-accent: linear-gradient(135deg, #7C3AED 0%, #6366F1 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
 }
 
@@ -112,6 +132,37 @@ body {
     background-color: var(--color-bg-primary);
     transition: background-color var(--transition-slow), color var(--transition-slow);
     overflow-x: hidden;
+}
+
+/* Make all sections slightly transparent so the 3D background shows through */
+.section {
+    background: transparent !important;
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-bg-primary);
+    opacity: 0.82;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.section>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero stays fully transparent — the 3D canvas is the background */
+.hero {
+    background: transparent;
+}
+
+.hero-background {
+    opacity: 0.6;
+    /* Dim the CSS orbs slightly so the 3D scene dominates */
 }
 
 h1,
@@ -377,6 +428,17 @@ ul {
     overflow: hidden;
 }
 
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+    pointer-events: none;
+}
+
 .gradient-orb {
     position: absolute;
     border-radius: 50%;
@@ -388,7 +450,8 @@ ul {
 .orb-1 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, hsl(250, 84%, 54%) 0%, transparent 70%);
+    background: radial-gradient(circle, #6366F1 0%, transparent 70%);
+    /* Blue-Purple */
     top: -10%;
     left: -10%;
     animation-delay: 0s;
@@ -397,7 +460,8 @@ ul {
 .orb-2 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, hsl(340, 82%, 52%) 0%, transparent 70%);
+    background: radial-gradient(circle, #22D3EE 0%, transparent 70%);
+    /* Cyan */
     bottom: -10%;
     right: -10%;
     animation-delay: -7s;
@@ -406,7 +470,8 @@ ul {
 .orb-3 {
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, hsl(180, 77%, 47%) 0%, transparent 70%);
+    background: radial-gradient(circle, #7C3AED 0%, transparent 70%);
+    /* Deep Purple */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
