@@ -483,14 +483,17 @@ ul {
 }
 
 .hero-name {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: var(--spacing-md);
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0;
+    white-space: nowrap;
 }
 
 .name-part {
