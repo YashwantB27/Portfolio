@@ -437,3 +437,35 @@ window.addEventListener('scroll', optimizedScroll);
 
 console.log('%c👋 Welcome to my portfolio!', 'font-size: 20px; font-weight: bold; color: #7c3aed;');
 console.log('%cBuilt with ❤️ by Buddala Yashwant', 'font-size: 14px; color: #6b7280;');
+
+// ===================================
+// PROJECT FILTER
+// ===================================
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+            const categories = card.getAttribute('data-category') || '';
+            const matches = filter === 'all' || categories.includes(filter);
+
+            if (matches) {
+                card.classList.remove('hidden');
+                // Re-trigger entrance animation
+                card.style.animation = 'none';
+                card.offsetHeight; // reflow
+                card.style.animation = '';
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
