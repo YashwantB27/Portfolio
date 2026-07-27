@@ -201,67 +201,120 @@ for (let i = 0; i < particleCount; i++) {
 // DOWNLOAD CV FUNCTIONALITY
 // ===================================
 
-const downloadCVBtn = document.getElementById('downloadCV');
+const cvButtons = document.querySelectorAll('#downloadCV, .download-cv-btn');
 
-downloadCVBtn.addEventListener('click', () => {
-    // Create a sample CV content
-    const cvContent = `
+cvButtons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const originalText = btn.innerHTML;
+
+        const showFeedback = () => {
+            btn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Downloaded!
+            `;
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+        };
+
+        const triggerDownload = (fileUrl, fileName) => {
+            const a = document.createElement('a');
+            a.href = fileUrl;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+
+        const resumePdf = 'Yashwant_Resume.pdf';
+
+        try {
+            const pdfResponse = await fetch(resumePdf, { method: 'HEAD' });
+            if (pdfResponse.ok) {
+                triggerDownload(resumePdf, 'Yashwant_Resume.pdf');
+                showFeedback();
+                return;
+            }
+        } catch (e) {
+            // PDF file fetch check ignored
+        }
+
+        // Fallback: Generate full CV directly
+        const cvContent = `
+================================================================================
 BUDDALA YASHWANT
-Full Stack Developer
-
-CONTACT INFORMATION
-Email: yashwant@example.com
-Phone: +91 1234567890
-Location: India
+Software Engineer | Full Stack & AI Enthusiast
+Email: yashwantbudhala27@gmail.com | Phone: +91 8019270425
+Location: Vijayawada, India | GitHub: https://github.com/YashwantB27
+================================================================================
 
 PROFESSIONAL SUMMARY
-Passionate developer with expertise in modern web technologies. 
-Skilled in creating beautiful and functional web experiences.
+--------------------
+Passionate Software Engineer with a strong interest in Artificial Intelligence and modern web technologies. Specialized in building scalable, user-centric applications and intelligent systems that solve real-world problems. Experienced in full-stack web development and AI-driven platforms, combining technical expertise with analytical thinking to create impactful digital experiences.
 
-SKILLS
-- Frontend: HTML, CSS, JavaScript, React
-- Backend: Node.js, Python
-- Database: MongoDB, MySQL
-- Tools: Git, GitHub, VS Code
+TECHNICAL SKILLS
+----------------
+- Programming Languages: JavaScript, Python, C++
+- Frontend Development: HTML5, CSS3, JavaScript (ES6+), React.js, Responsive UI/UX Design
+- Backend Development: Node.js, Django, Python, RESTful APIs
+- Databases & Storage: SQLite, MySQL, Database Management
+- Tools & Platforms: Git, GitHub, Three.js, VS Code, Render, Vercel
 
-EXPERIENCE
-Full Stack Developer
-- Developed responsive web applications
-- Implemented modern UI/UX designs
-- Collaborated with cross-functional teams
+WORK EXPERIENCE & INTERNSHIPS
+-----------------------------
+Full Stack Development Intern
+Digital Blinc | July 2025 – September 2025
+- Developed and integrated responsive frontend interfaces and robust backend APIs.
+- Designed database schemas and managed database operations for web applications.
+- Engineered an Online Booking Engine project delivering seamless booking workflows.
+- Collaborated on API integrations and performance optimizations.
+
+KEY PROJECTS
+------------
+FeedForward — Health & Sustainable Food Web Application
+Technologies: Django, Python, SQLite, JavaScript, HTML5, CSS3
+Live Demo: https://feedforward-61pa.onrender.com
+GitHub: https://github.com/YashwantB27/FeedForward
+- Built a full-stack web application enabling users to track daily calorie intake and monitor nutrition goals.
+- Designed a surplus food donation portal connecting donors with food distribution initiatives.
+- Implemented user engagement features including dynamic progress tracking and achievement badges.
+
+CERTIFICATIONS & ACHIEVEMENTS
+-----------------------------
+- AI for Business Professionals — HP LIFE (Feb 2026)
+  Serial No: c9206473-b14d-42cf-ab58-f0249b8947cf
+- Internship in Full Stack Development — Digital Blinc (Sep 2025)
+  Cert ID: CERT-BL-2025-FS-394
+- Ignite India: Program Completion & Content Completion — Wadhwani Foundation (Oct-Nov 2025)
+- Programming in Modern C++ (Elite Certification) — NPTEL / IIT Kharagpur (Jul-Oct 2025)
+  Roll No: NPTEL25CS144S1272102377
+- Internet of Things (IoT) 30-Hour Training — ExcelR (Mar-Apr 2025)
+  Cert No: 113921/EXCELR/EDL/25042025
+- Design Thinking - A Primer (Elite Certification) — NPTEL / IIT Madras (Jan-Feb 2025)
+  Roll No: NPTEL25MG18S532600245
+- Design Thinking | From Zero to HERO — Udemy (Jan 2025)
+- User Orientation on IEEEXplore & DELNET — NDLI Club (Mar 2025)
+- The Joy of Computing Using Python (Elite Certification) — NPTEL / IIT Madras (Jul-Oct 2024)
+  Roll No: NPTEL24CS113S755700944
+- AI for Students: Build Your Own Generative AI Model — NxtWave (Aug 2024)
+- NDLI User Awareness Program — NDLI Club (Aug 2024)
+- National Librarians' Day Essay Writing Competition — NDLI Club (Aug 2024)
 
 EDUCATION
-Bachelor's Degree in Computer Science
+---------
+Bachelor of Technology / Degree in Computer Science & Engineering
+Andhra Loyola Institute of Engineering & Technology, Vijayawada, India
+================================================================================
+        `.trim();
 
-PROJECTS
-- Portfolio Website
-- E-commerce Platform
-- Task Management App
-    `.trim();
-
-    // Create blob and download
-    const blob = new Blob([cvContent], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Buddala_Yashwant_CV.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-
-    // Show feedback
-    const originalText = downloadCVBtn.innerHTML;
-    downloadCVBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-        Downloaded!
-    `;
-
-    setTimeout(() => {
-        downloadCVBtn.innerHTML = originalText;
-    }, 2000);
+        const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
+        const url = window.URL.createObjectURL(blob);
+        triggerDownload(url, 'Buddala_Yashwant_CV.txt');
+        window.URL.revokeObjectURL(url);
+        showFeedback();
+    });
 });
 
 // ===================================
