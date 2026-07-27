@@ -273,7 +273,13 @@ Digital Blinc | July 2025 – September 2025
 
 KEY PROJECTS
 ------------
-FeedForward — Health & Sustainable Food Web Application
+1. Smart Crop Disease Detection & Market Price Prediction
+Technologies: Python, FastAPI, TensorFlow, OpenCV, Chart.js, SQLite
+GitHub: https://github.com/YashwantB27/Smart-Crop-Disease-Detection-And-Market-Price-Prediction
+- Scans crop leaf images to detect plant diseases using computer vision & deep learning.
+- Integrates real-time market price analytics, historical trend charts, and crop recommendations.
+
+2. FeedForward — Health & Sustainable Food Web Application
 Technologies: Django, Python, SQLite, JavaScript, HTML5, CSS3
 Live Demo: https://feedforward-61pa.onrender.com
 GitHub: https://github.com/YashwantB27/FeedForward
