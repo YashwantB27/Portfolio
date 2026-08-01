@@ -422,7 +422,7 @@ window.addEventListener('mousemove', (e) => {
 // INTERSECTION OBSERVER FOR ANIMATIONS
 // ===================================
 
-const animateOnScroll = document.querySelectorAll('.skill-category, .stat-card, .contact-method');
+const animateOnScroll = document.querySelectorAll('.skill-category, .stat-card, .contact-method, .achievement-card, .subachievement-card');
 
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
