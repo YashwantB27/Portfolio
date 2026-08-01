@@ -422,7 +422,7 @@ window.addEventListener('mousemove', (e) => {
 // INTERSECTION OBSERVER FOR ANIMATIONS
 // ===================================
 
-const animateOnScroll = document.querySelectorAll('.skill-category, .stat-card, .contact-method, .achievement-card, .subachievement-card');
+const animateOnScroll = document.querySelectorAll('.skill-category, .stat-card, .contact-method, .achievement-card, .subachievement-card, .coding-card');
 
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -751,3 +751,61 @@ document.addEventListener('keydown', (e) => {
         closeCertModal();
     }
 });
+
+// ===================================
+// DYNAMIC CODING STATS FETCH (LEETCODE & HACKEREARTH)
+// ===================================
+
+async function fetchLeetCodeStats() {
+    const username = 'Yashwant27';
+    const rankEl = document.getElementById('leetcodeRank');
+    const totalEl = document.getElementById('leetcodeTotalSolved');
+    const easyEl = document.getElementById('leetcodeEasy');
+    const mediumEl = document.getElementById('leetcodeMedium');
+    const hardEl = document.getElementById('leetcodeHard');
+
+    if (!rankEl) return;
+
+    const profileUrl = `https://alfa-leetcode-api.onrender.com/${username}`;
+    const solvedUrl = `https://alfa-leetcode-api.onrender.com/${username}/solved`;
+
+    try {
+        const [profileRes, solvedRes] = await Promise.all([
+            fetch(profileUrl).then(r => r.ok ? r.json() : null).catch(() => null),
+            fetch(solvedUrl).then(r => r.ok ? r.json() : null).catch(() => null)
+        ]);
+
+        if (profileRes && profileRes.ranking) {
+            rankEl.textContent = `#${profileRes.ranking.toLocaleString()}`;
+        } else {
+            rankEl.textContent = '#2,038,284';
+        }
+
+        if (solvedRes) {
+            if (solvedRes.solvedProblem !== undefined) totalEl.textContent = solvedRes.solvedProblem;
+            if (solvedRes.easySolved !== undefined) easyEl.textContent = solvedRes.easySolved;
+            if (solvedRes.mediumSolved !== undefined) mediumEl.textContent = solvedRes.mediumSolved;
+            if (solvedRes.hardSolved !== undefined) hardEl.textContent = solvedRes.hardSolved;
+        } else {
+            totalEl.textContent = '75';
+            easyEl.textContent = '51';
+            mediumEl.textContent = '24';
+            hardEl.textContent = '0';
+        }
+    } catch (err) {
+        console.warn('Failed to fetch live LeetCode stats, using fallback stats:', err);
+        rankEl.textContent = '#2,038,284';
+        totalEl.textContent = '75';
+        easyEl.textContent = '51';
+        mediumEl.textContent = '24';
+        hardEl.textContent = '0';
+    }
+}
+
+// Fetch stats on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fetchLeetCodeStats);
+} else {
+    fetchLeetCodeStats();
+}
+

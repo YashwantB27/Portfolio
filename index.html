@@ -195,6 +195,109 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Coding Platforms & Dynamic Ranks -->
+            <div class="coding-profiles-wrapper">
+                <div class="coding-profiles-header">
+                    <h3 class="coding-profiles-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Competitive Coding &amp; Live Rankings
+                    </h3>
+                    <span class="live-status-pill">
+                        <span class="live-dot"></span> Dynamic API Sync
+                    </span>
+                </div>
+
+                <div class="coding-cards-grid">
+                    <!-- LeetCode Card -->
+                    <div class="coding-card leetcode-card">
+                        <div class="coding-card-header">
+                            <div class="platform-brand">
+                                <div class="platform-icon leetcode-icon">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.17 5.79a1.374 1.374 0 0 0-.012 1.944l.012.012 2.457 2.457a1.37 1.37 0 0 0 1.944 0l.012-.012 3.89-3.89 3.89 3.89a1.37 1.37 0 0 0 1.944 0l.012-.012 2.457-2.457a1.37 1.37 0 0 0 0-1.944l-8.384-8.384A1.37 1.37 0 0 0 13.483 0zm-8.384 8.384a1.37 1.37 0 0 0-.961.438l-3.89 3.89a1.37 1.37 0 0 0 0 1.944l8.384 8.384a1.37 1.37 0 0 0 1.944 0l2.457-2.457a1.37 1.37 0 0 0 0-1.944l-.012-.012-3.89-3.89 3.89-3.89a1.37 1.37 0 0 0 0-1.944l-.012-.012-2.457-2.457a1.374 1.374 0 0 0-.96-.438h-.026zm16.768 0a1.37 1.37 0 0 0-.96.438l-2.457 2.457a1.37 1.37 0 0 0 0 1.944l3.89 3.89-3.89 3.89a1.37 1.37 0 0 0 0 1.944l.012.012 2.457 2.457a1.37 1.37 0 0 0 1.944 0l8.384-8.384a1.37 1.37 0 0 0 0-1.944l-8.384-8.384a1.37 1.37 0 0 0-.96-.438z"/>
+                                    </svg>
+                                </div>
+                                <div class="platform-info">
+                                    <h4>LeetCode</h4>
+                                    <span class="platform-handle">@Yashwant27</span>
+                                </div>
+                            </div>
+                            <a href="https://leetcode.com/u/Yashwant27/" target="_blank" rel="noopener noreferrer" class="profile-link-btn" title="View LeetCode Profile">
+                                <span>Profile</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="coding-card-body">
+                            <div class="rank-highlight-box">
+                                <span class="rank-label">Global Ranking</span>
+                                <span class="rank-value" id="leetcodeRank">Loading...</span>
+                            </div>
+                            <div class="stats-row">
+                                <div class="stat-mini">
+                                    <span class="stat-num" id="leetcodeTotalSolved">--</span>
+                                    <span class="stat-txt">Solved</span>
+                                </div>
+                                <div class="difficulty-pills">
+                                    <span class="diff-pill easy">Easy: <strong id="leetcodeEasy">--</strong></span>
+                                    <span class="diff-pill medium">Medium: <strong id="leetcodeMedium">--</strong></span>
+                                    <span class="diff-pill hard">Hard: <strong id="leetcodeHard">--</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HackerEarth Card -->
+                    <div class="coding-card hackerearth-card">
+                        <div class="coding-card-header">
+                            <div class="platform-brand">
+                                <div class="platform-icon hackerearth-icon">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm-1.8 17.4H7.8V6.6h2.4v4.2h3.6V6.6h2.4v10.8h-2.4v-4.8h-3.6v4.8z"/>
+                                    </svg>
+                                </div>
+                                <div class="platform-info">
+                                    <h4>HackerEarth</h4>
+                                    <span class="platform-handle">@Yashwant27</span>
+                                </div>
+                            </div>
+                            <a href="https://www.hackerearth.com/@Yashwant27" target="_blank" rel="noopener noreferrer" class="profile-link-btn" title="View HackerEarth Profile">
+                                <span>Profile</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="coding-card-body">
+                            <div class="rank-highlight-box hackerearth-box">
+                                <span class="rank-label">Competitive Profile</span>
+                                <span class="rank-value" id="hackerearthStatus">Active Contender</span>
+                            </div>
+                            <div class="stats-row">
+                                <div class="stat-mini">
+                                    <span class="stat-num">Active</span>
+                                    <span class="stat-txt">Status</span>
+                                </div>
+                                <div class="difficulty-pills">
+                                    <span class="diff-pill he-pill">DSA &amp; Problem Solving</span>
+                                    <span class="diff-pill he-pill">Algorithms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
