@@ -273,9 +273,9 @@ Digital Blinc | July 2025 – September 2025
 
 KEY PROJECTS
 ------------
-1. Smart Crop Disease Detection & Market Price Prediction
+1. Kisan Sahayak — Smart Agriculture & Crop Disease Detection
 Technologies: Python, FastAPI, TensorFlow, OpenCV, Chart.js, SQLite
-GitHub: https://github.com/YashwantB27/Smart-Crop-Disease-Detection-And-Market-Price-Prediction
+GitHub: https://github.com/YashwantB27/Kisan-Sahayak
 - Scans crop leaf images to detect plant diseases using computer vision & deep learning.
 - Integrates real-time market price analytics, historical trend charts, and crop recommendations.
 
