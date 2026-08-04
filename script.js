@@ -287,6 +287,12 @@ GitHub: https://github.com/YashwantB27/FeedForward
 - Designed a surplus food donation portal connecting donors with food distribution initiatives.
 - Implemented user engagement features including dynamic progress tracking and achievement badges.
 
+3. Problem Solving — LeetCode Solutions & Data Structures
+Technologies: C++, Python, Java, Data Structures, Algorithms
+GitHub: https://github.com/YashwantB27/LeetCode-solutions
+- Collection of clean, optimized solutions to Data Structures & Algorithms problems on LeetCode.
+- Focused on optimal time/space complexity, algorithmic patterns, and problem-solving techniques.
+
 CERTIFICATIONS & ACHIEVEMENTS
 -----------------------------
 - AI for Business Professionals — HP LIFE (Feb 2026)
