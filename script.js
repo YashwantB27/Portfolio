@@ -540,34 +540,334 @@ filterButtons.forEach(btn => {
 // ===================================
 
 const certificatesData = {
-    nptel: {
-        title: "NPTEL (IIT) Certifications",
-        badge: "3 Certificates",
-        subtitle: "Elite certifications from IIT Madras & IIT Kharagpur",
+    ai: {
+        title: "Artificial Intelligence (AI)",
+        badge: "4 Certificates",
+        subtitle: "Generative AI, AI for Business, EY & Microsoft AI Skills Passport, and HP LIFE Credentials",
         items: [
             {
-                title: "Design Thinking - A Primer",
-                issuer: "NPTEL (IIT Madras)",
-                date: "Issued: Jan-Feb 2025",
-                details: "4-week Elite certification course with a consolidated score of 61%. Roll No: NPTEL25MG18S532600245",
-                pdf: "Certificates/Design Thinking - A Primer.pdf",
-                tag: "Roll No: NPTEL25MG18S532600245"
+                title: "AI for Business Professionals",
+                issuer: "HP LIFE",
+                date: "Issued: February 12, 2026",
+                details: "Explored AI's role in business, prompting strategies, standalone vs integrated tools, and ethical AI applications. Serial: c9206473-b14d-42cf-ab58-f0249b8947cf",
+                pdf: "Certificates/AI/AI for Business Professionals.pdf",
+                tag: "HP LIFE Certification"
+            },
+            {
+                title: "AI Skills Passport",
+                issuer: "EY & Microsoft",
+                date: "Issued: 2025",
+                details: "Completed general and employability sections covering Sustainability, Business & Entrepreneurship, and Technology.",
+                pdf: "Certificates/AI/Certificate_239541_34_xu55x.pdf",
+                tag: "EY & Microsoft"
+            },
+            {
+                title: "AI for Students: Build Your Own Generative AI Model",
+                issuer: "NxtWave",
+                date: "Issued: August 17, 2024",
+                details: "Hands-on workshop equipping students with essential Generative AI era skills and model building.",
+                pdf: "Certificates/AI/AI for Students.pdf",
+                tag: "Generative AI Workshop"
+            },
+            {
+                title: "HP LIFE AI Business Professional Digital Badge",
+                issuer: "HP LIFE",
+                date: "Issued: February 2026",
+                details: "Official digital badge awarded for completing HP LIFE AI for Business Professionals.",
+                pdf: "Certificates/AI/cee9ac3a-4936-4f84-ba9f-d023652ec7dd.png",
+                tag: "Digital Badge",
+                isImage: true
+            }
+        ]
+    },
+    apssdc: {
+        title: "APSSDC Certifications",
+        badge: "1 Certificate",
+        subtitle: "Andhra Pradesh State Skill Development Corporation Programs",
+        items: [
+            {
+                title: "State Skill Development Program Certificate",
+                issuer: "APSSDC",
+                date: "Issued: July 10, 2026",
+                details: "Technical skill training program certification by Department of Skills Development & Training, Govt of Andhra Pradesh.",
+                pdf: "Certificates/APSSDC/result_17836654972927433.pdf",
+                tag: "Govt of AP"
+            }
+        ]
+    },
+    deloitte: {
+        title: "Deloitte Job Simulations",
+        badge: "2 Certificates",
+        subtitle: "Practical corporate job simulations in Data Analytics and Technology",
+        items: [
+            {
+                title: "Technology Job Simulation",
+                issuer: "Deloitte (via Forage)",
+                date: "Issued: August 7, 2026",
+                details: "Completed practical tasks in software development, coding, and technical consulting. Verification: dCXjnYe4KNYpb7WbG.",
+                pdf: "Certificates/Delloite/Delloite Simulation of Technology.pdf",
+                tag: "Technology Simulation"
+            },
+            {
+                title: "Data Analytics Job Simulation",
+                issuer: "Deloitte (via Forage)",
+                date: "Issued: March 12, 2026",
+                details: "Completed practical tasks in data analysis, forensic technology, and data visualization. Verification: Au2va22rWoFCRXjJv.",
+                pdf: "Certificates/Delloite/Delloite Job Simulation Certificate.pdf",
+                tag: "Data Analytics"
+            }
+        ]
+    },
+    google: {
+        title: "Google AI Certifications",
+        badge: "7 Certificates",
+        subtitle: "Google AI Professional Specialization & Individual AI Skill Modules",
+        items: [
+            {
+                title: "Google AI Professional Certificate",
+                issuer: "Google (via Coursera)",
+                date: "Issued: May 19, 2026",
+                details: "7-course Professional Specialization demonstrating fluency and practical application of AI across work domains.",
+                pdf: "Certificates/Google/Coursera TMCN0FIGZW2A.pdf",
+                tag: "Specialization Certificate"
+            },
+            {
+                title: "AI for Data Analysis",
+                issuer: "Google (via Coursera)",
+                date: "Issued: May 19, 2026",
+                details: "Online course authorized by Google covering AI-assisted data analysis and insights. Verify: 5AY6UX2ZWTSD.",
+                pdf: "Certificates/Google/Coursera 5AY6UX2ZWTSD.pdf",
+                tag: "Coursera: 5AY6UX2ZWTSD"
+            },
+            {
+                title: "AI for Brainstorming and Planning",
+                issuer: "Google (via Coursera)",
+                date: "Issued: May 19, 2026",
+                details: "Online course authorized by Google focusing on strategic planning and ideation using AI tools. Verify: 6QDLMKDL87AH.",
+                pdf: "Certificates/Google/Coursera 6QDLMKDL87AH.pdf",
+                tag: "Coursera: 6QDLMKDL87AH"
+            },
+            {
+                title: "AI for Research and Insights",
+                issuer: "Google (via Coursera)",
+                date: "Issued: May 19, 2026",
+                details: "Online course authorized by Google covering research synthesis and insight extraction using AI. Verify: 7T4R1YXI0T4R.",
+                pdf: "Certificates/Google/Coursera 7T4R1YXI0T4R.pdf",
+                tag: "Coursera: 7T4R1YXI0T4R"
+            },
+            {
+                title: "AI for Content Creation",
+                issuer: "Google (via Coursera)",
+                date: "Issued: May 19, 2026",
+                details: "Online course authorized by Google covering generative media and AI-driven content generation. Verify: ECZOSF1OG4TC.",
+                pdf: "Certificates/Google/Coursera ECZOSF1OG4TC.pdf",
+                tag: "Coursera: ECZOSF1OG4TC"
+            },
+            {
+                title: "AI for Writing and Communicating",
+                issuer: "Google (via Coursera)",
+                date: "Issued: May 19, 2026",
+                details: "Online course authorized by Google on effective business communication and prompt engineering. Verify: YE8WLBA982MX.",
+                pdf: "Certificates/Google/Coursera YE8WLBA982MX.pdf",
+                tag: "Coursera: YE8WLBA982MX"
+            },
+            {
+                title: "Google AI Professional Badge Graphic",
+                issuer: "Google",
+                date: "Issued: May 2026",
+                details: "High-resolution graphic badge celebrating completion of Google AI Professional Specialization.",
+                pdf: "Certificates/Google/Certificate_Buddala_Yashwant_.png",
+                tag: "Official Badge",
+                isImage: true
+            }
+        ]
+    },
+    hackathon: {
+        title: "Hackathon Certifications",
+        badge: "2 Certificates",
+        subtitle: "Hackathon competitions, solution challenges, and team innovation awards",
+        items: [
+            {
+                title: "Hackathon Certificate of Participation",
+                issuer: "Hackathon Organizing Committee",
+                date: "Issued: 2025",
+                details: "Awarded for participating in competitive hackathon event and building innovative software solution.",
+                pdf: "Certificates/Hackathon/Certificate of Participation - Buddala Yashwant.pdf",
+                tag: "Participation Award"
+            },
+            {
+                title: "Hackathon Achievement Badge",
+                issuer: "Hackathon Committee",
+                date: "Issued: 2025",
+                details: "Official graphic certificate badge celebrating hackathon participation.",
+                pdf: "Certificates/Hackathon/Buddala Yashwant.png",
+                tag: "Badge Graphic",
+                isImage: true
+            }
+        ]
+    },
+    ibm: {
+        title: "IBM SkillsBuild & Badges",
+        badge: "4 Certificates",
+        subtitle: "IBM Virtual Internship & Digital Badges in RAG, Multiagent Systems, and AI Agents",
+        items: [
+            {
+                title: "1M1B | AI + Sustainability Virtual Internship",
+                issuer: "IBM SkillsBuild & 1M1B",
+                date: "Issued: March 11, 2026",
+                details: "Virtual internship focusing on AI application for sustainable development. Plan ID: PLAN-5C114CF1ADED.",
+                pdf: "Certificates/IBM/Completion Certificate _ SkillsBuild.pdf",
+                tag: "SkillsBuild Internship"
+            },
+            {
+                title: "Introduction to Retrieval-Augmented Generation (RAG)",
+                issuer: "IBM SkillsBuild",
+                date: "Issued: 2026",
+                details: "IBM Digital Badge for mastering RAG concepts, vector databases, and document retrieval.",
+                pdf: "Certificates/IBM/Digital Sticker_ Introduction to Retrieval-Augmented Generation.png",
+                tag: "IBM Digital Badge",
+                isImage: true
+            },
+            {
+                title: "The Rise of Multiagent Systems",
+                issuer: "IBM SkillsBuild",
+                date: "Issued: 2026",
+                details: "IBM Digital Badge for understanding multiagent communication, task decomposition, and coordination.",
+                pdf: "Certificates/IBM/Digital Sticker_The Rise of Multiagent Systems.png",
+                tag: "IBM Digital Badge",
+                isImage: true
+            },
+            {
+                title: "Unleashing the Power of AI Agents",
+                issuer: "IBM SkillsBuild",
+                date: "Issued: 2026",
+                details: "IBM Digital Badge for building autonomous AI agents with tools, memory, and reasoning loops.",
+                pdf: "Certificates/IBM/Digital Sticker_Unleashing the Power of AI Agents.png",
+                tag: "IBM Digital Badge",
+                isImage: true
+            }
+        ]
+    },
+    iot: {
+        title: "Internet of Things (IoT)",
+        badge: "1 Certificate",
+        subtitle: "30-Hour Intensive Training Program on IoT Systems & Microcontrollers",
+        items: [
+            {
+                title: "Internet of Things (IoT) Training Certificate",
+                issuer: "ExcelR EdTech",
+                date: "Issued: March 24 - April 14, 2025",
+                details: "30-hour live training program covering IoT fundamentals, microcontrollers, and sensor integration. Cert No: 113921/EXCELR/EDL/25042025.",
+                pdf: "Certificates/IOT/EXCELR-113921-Buddala Yashwant.pdf",
+                tag: "Cert No: 113921/EXCELR..."
+            }
+        ]
+    },
+    internship: {
+        title: "Internship Certifications",
+        badge: "2 Certificates",
+        subtitle: "Full Stack Web Development & AWS Cloud Computing DevOps Internships",
+        items: [
+            {
+                title: "Full Stack Web Development Internship",
+                issuer: "Digital Blinc",
+                date: "Issued: September 25, 2025",
+                details: "2-month internship covering Frontend, Backend, APIs, Database Management, and Online Booking Engine. Cert ID: CERT-BL-2025-FS-394.",
+                pdf: "Certificates/Internship/Certificate_Buddala Yashwant_CERT-BL-2025-FS-394.pdf",
+                tag: "Cert ID: CERT-BL-2025-FS-394"
+            },
+            {
+                title: "AWS Cloud Computing - DevOps Internship",
+                issuer: "APSSDC (Govt of AP)",
+                date: "Issued: May 04 - July 03, 2026",
+                details: "Summer Online Internship covering AWS Cloud, CI/CD, Containerization, and DevOps practices. Cert No: APSSDC/SIP/2026-27/29697.",
+                pdf: "Certificates/Internship/CLOUD COMPUTING INTERNSHIP CERTIFICATE.pdf",
+                tag: "Cert No: APSSDC/SIP/2026-27..."
+            }
+        ]
+    },
+    ndli: {
+        title: "NDLI Club & Academic Events",
+        badge: "3 Certificates",
+        subtitle: "National Digital Library of India (NDLI) Club workshops and competitions",
+        items: [
+            {
+                title: "User Orientation on IEEEXplore & DELNET",
+                issuer: "NDLI Club of ALIET",
+                date: "Issued: March 3, 2025",
+                details: "User orientation session organized by Andhra Loyola Institute of Engineering & Technology on research platforms.",
+                pdf: "Certificates/NDLI/Event-certificate-24999--1749395673.890095.pdf",
+                tag: "IEEE & DELNET"
+            },
+            {
+                title: "NDLI User Awareness Program",
+                issuer: "NDLI Club of ALIET",
+                date: "Issued: August 14, 2024",
+                details: "User awareness program on digital library repositories and search tools.",
+                pdf: "Certificates/NDLI/Event-certificate-20438--1727846605.338936.pdf",
+                tag: "User Awareness"
+            },
+            {
+                title: "National Librarians' Day 2024 - Essay Writing",
+                issuer: "NDLI Club of ALIET",
+                date: "Issued: August 9, 2024",
+                details: "Essay writing competition participation organized by NDLI Club of ALIET.",
+                pdf: "Certificates/NDLI/Event-certificate-20255--1727846647.053074.pdf",
+                tag: "Essay Competition"
+            }
+        ]
+    },
+    nptel: {
+        title: "NPTEL (IIT) Certifications",
+        badge: "4 Certificates",
+        subtitle: "Elite certifications from premier IITs (IIT Madras & IIT Kharagpur)",
+        items: [
+            {
+                title: "Introduction to Large Language Models (LLMs)",
+                issuer: "NPTEL (12-Week Course)",
+                date: "Issued: Jan-Apr 2026",
+                details: "12-week Elite course covering LLM architectures, fine-tuning, vector embeddings, and prompt engineering. Roll No: NPTEL26CS88S168101675.",
+                pdf: "Certificates/NPTEL/Introduction To Large Language Models.pdf",
+                tag: "Roll No: NPTEL26CS88S168101675"
             },
             {
                 title: "Programming in Modern C++",
                 issuer: "NPTEL (IIT Kharagpur)",
                 date: "Issued: Jul-Oct 2025",
-                details: "12-week Elite certification course with a consolidated score of 62%. Roll No: NPTEL25CS144S1272102377",
-                pdf: "Certificates/Programming in Modern C++.pdf",
+                details: "12-week Elite certification course with a consolidated score of 62%. Roll No: NPTEL25CS144S1272102377.",
+                pdf: "Certificates/NPTEL/Programming in Modern C++.pdf",
                 tag: "Roll No: NPTEL25CS144S1272102377"
+            },
+            {
+                title: "Design Thinking - A Primer",
+                issuer: "NPTEL (IIT Madras)",
+                date: "Issued: Jan-Feb 2025",
+                details: "4-week Elite certification course with a consolidated score of 61%. Roll No: NPTEL25MG18S532600245.",
+                pdf: "Certificates/NPTEL/Design Thinking - A Primer.pdf",
+                tag: "Roll No: NPTEL25MG18S532600245"
             },
             {
                 title: "The Joy of Computing Using Python",
                 issuer: "NPTEL (IIT Madras)",
                 date: "Issued: Jul-Oct 2024",
-                details: "12-week Elite certification course with a consolidated score of 65%. Roll No: NPTEL24CS113S755700944",
-                pdf: "Certificates/The Joy of Computing using Python.pdf",
+                details: "12-week Elite certification course with a consolidated score of 65%. Roll No: NPTEL24CS113S755700944.",
+                pdf: "Certificates/NPTEL/The Joy of Computing using Python.pdf",
                 tag: "Roll No: NPTEL24CS113S755700944"
+            }
+        ]
+    },
+    udemy: {
+        title: "Udemy Certifications",
+        badge: "1 Certificate",
+        subtitle: "Specialized online coursework and skill mastery on Udemy",
+        items: [
+            {
+                title: "Design Thinking | From Zero to HERO",
+                issuer: "Udemy",
+                date: "Issued: January 18, 2025",
+                details: "Comprehensive Design Thinking certification taught by instructor Ivan Pinar Domínguez.",
+                pdf: "Certificates/Udemy/Design Thinking - Udemy.pdf",
+                tag: "Design Thinking"
             }
         ]
     },
@@ -577,105 +877,20 @@ const certificatesData = {
         subtitle: "Ignite India Entrepreneurship training and Practice Venture programs",
         items: [
             {
-                title: "Ignite India - Program Completion",
+                title: "Ignite India - Program & Practice Venture Completion",
                 issuer: "Wadhwani Foundation",
                 date: "Issued: November 09, 2025",
-                details: "Hands-on entrepreneurial skills training including a 'Practice Venture' project.",
-                pdf: "Certificates/Wadhwani Foundation Certificate - 6910ba5a75befa3ac2e7b3e5.pdf",
+                details: "42 hours of training with hands-on entrepreneurial skills, assessments, and a 'Practice Venture' project.",
+                pdf: "Certificates/Wadhwani/Wadhwani Foundation Certificate - 6910ba5a75befa3ac2e7b3e5.pdf",
                 tag: "Program Completion"
             },
             {
                 title: "Ignite India - Content Completion",
                 issuer: "Wadhwani Foundation",
                 date: "Issued: October 24, 2025",
-                details: "Coursework on key entrepreneurial skills in ideation, business modeling, and financial planning.",
-                pdf: "Certificates/Wadhwani Foundation Certificate - 68fb7650340b394e18eee0fd.pdf",
+                details: "42 hours of coursework covering key entrepreneurial skills in ideation, business modeling, and financial planning.",
+                pdf: "Certificates/Wadhwani/Wadhwani Foundation Certificate - 68fb7650340b394e18eee0fd.pdf",
                 tag: "Content Completion"
-            }
-        ]
-    },
-    ndli: {
-        title: "NDLI Club & Academic Events",
-        badge: "3 Certificates",
-        subtitle: "National Digital Library of India (NDLI) Club workshops and academic competitions",
-        items: [
-            {
-                title: "User Orientation on IEEEXplore & DELNET",
-                issuer: "NDLI Club",
-                date: "Issued: March 3, 2025",
-                details: "Participation in user orientation organized by Andhra Loyola Institute of Engineering & Technology.",
-                pdf: "Certificates/Event-certificate-20438--1727846605.338936.pdf",
-                tag: "IEEE & DELNET"
-            },
-            {
-                title: "NDLI User Awareness Program",
-                issuer: "NDLI Club",
-                date: "Issued: August 14, 2024",
-                details: "Participation in user awareness session organized by Andhra Loyola Institute of Engineering & Technology.",
-                pdf: "Certificates/Event-certificate-20255--1727846647.053074.pdf",
-                tag: "User Awareness"
-            },
-            {
-                title: "National Librarians' Day 2024 - Essay Writing",
-                issuer: "NDLI Club",
-                date: "Issued: August 9, 2024",
-                details: "Participation in essay writing competition organized by Andhra Loyola Institute of Engineering & Technology.",
-                pdf: "Certificates/Event-certificate-24999--1749395673.890095.pdf",
-                tag: "Essay Writing"
-            }
-        ]
-    },
-    industry: {
-        title: "Professional & Internship Certifications",
-        badge: "3 Certificates",
-        subtitle: "Full stack web development internship, AI for business, and IoT industry training",
-        items: [
-            {
-                title: "Internship in Full Stack Development",
-                issuer: "Digital Blinc",
-                date: "Issued: September 25, 2025",
-                details: "2-month internship covering Frontend, Backend, APIs, Database Management, and an Online Booking Engine project. Cert ID: CERT-BL-2025-FS-394",
-                pdf: "Certificates/Certificate_Buddala Yashwant_CERT-BL-2025-FS-394.pdf",
-                tag: "Cert ID: CERT-BL-2025-FS-394"
-            },
-            {
-                title: "AI for Business Professionals",
-                issuer: "HP LIFE",
-                date: "Issued: February 12, 2026",
-                details: "Course covering AI's role in business, effective prompting, ethical use, and integrated vs. standalone tools. Serial No: c9206473-b14d-42cf-ab58-f0249b8947cf",
-                pdf: "Certificates/AI for Business Professionals.pdf",
-                tag: "Serial: c9206473-b14d-42cf..."
-            },
-            {
-                title: "Internet of Things (IoT)",
-                issuer: "ExcelR",
-                date: "Issued: March 24 - April 14, 2025",
-                details: "30-hour Live Training Program covering IoT fundamentals and applications. Cert No: 113921/EXCELR/EDL/25042025",
-                pdf: "Certificates/EXCELR-113921-Buddala Yashwant.pdf",
-                tag: "Cert No: 113921/EXCELR..."
-            }
-        ]
-    },
-    workshops: {
-        title: "AI Workshops & Online Courses",
-        badge: "2 Certificates",
-        subtitle: "Generative AI model building workshops and specialized Design Thinking credentials",
-        items: [
-            {
-                title: "AI for Students: Build Your Own Generative AI Model",
-                issuer: "NxtWave",
-                date: "Issued: August 17, 2024",
-                details: "Workshop designed to equip students with essential Generative AI era skills.",
-                pdf: "Certificates/AI for Students.pdf",
-                tag: "Generative AI"
-            },
-            {
-                title: "Design Thinking | From Zero to HERO",
-                issuer: "Udemy",
-                date: "Issued: January 18, 2025",
-                details: "Comprehensive Design Thinking course taught by instructor Ivan Pinar Domínguez.",
-                pdf: "Certificates/Design Thinking - Udemy.pdf",
-                tag: "Credential UC-17729efe..."
             }
         ]
     }
@@ -706,12 +921,21 @@ function openCertModal(categoryKey) {
             <p class="cert-item-details">${item.details}</p>
             <div class="cert-item-actions">
                 <a href="${encodeURI(item.pdf)}" target="_blank" rel="noopener noreferrer" class="btn-cert-pdf">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    View PDF Certificate
+                    ${item.isImage ? `
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        View Badge / Image
+                    ` : `
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        View PDF Certificate
+                    `}
                 </a>
             </div>
         </div>
